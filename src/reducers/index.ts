@@ -1,7 +1,6 @@
 // import every type of actions
 import {
-    CHANGE_DIRECTION_TO_LEFT,
-    CHANGE_DIRECTION_TO_RIGHT,
+    CHANGE_DIRECTION,
     RANDOMIZE_FIRST_COLOR,
     RANDOMIZE_LAST_COLOR,
 } from "../actions";
@@ -9,6 +8,11 @@ import {
 // import them all with 'actions'
 // import * as actions from "../actions";
 // but prepend actions using actions.ACTION_TYPE
+type actionProps = {
+    color: string,
+    type: string,
+    direction: string,
+}
 
 type initialStateProps = {
     direction: string,
@@ -29,9 +33,10 @@ const initialState: initialStateProps = {
 // => return new state
 const reducer = (
     state = initialState,
-    action = {
+    action: actionProps = {
         color: '',
-        type: ''
+        type: '',
+        direction: '',
     }
 ) => {
     switch (action.type) {
@@ -47,16 +52,11 @@ const reducer = (
                 lastColor: action.color,
                 nbColors: state.nbColors + 1,
             }
-        case CHANGE_DIRECTION_TO_LEFT:
-            return {
-                // return the same object, but with direction '270deg'
-                ...state,
-                direction: '270deg',
-            }
-        case CHANGE_DIRECTION_TO_RIGHT:
+        case CHANGE_DIRECTION:
+            console.log({state, action})
             return {
                 ...state,
-                direction: '90deg',
+                direction: action.direction,
             }
         default:
             return {

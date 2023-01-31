@@ -2,12 +2,10 @@ import './App.css'
 import store from "./store";
 import {generateSpanColor} from "./utils";
 import {
-    directionToLeft,
-    directionToRight,
+    changeDirection,
     randomizeFirstColor,
     randomizeLastColor
 } from "./actions";
-
 
 // store
 //  - Read      => getState() : get actual state
@@ -87,13 +85,33 @@ document.getElementById('randLast')
 
 document.getElementById('toLeft')
     ?.addEventListener('click', () => {
-            store.dispatch(directionToLeft())
+            store.dispatch(changeDirection('270deg'))
+        }
+    )
+document.getElementById('to45')
+    ?.addEventListener('click', () => {
+            store.dispatch(changeDirection('45deg'))
+        }
+    )
+document.getElementById('to135')
+    ?.addEventListener('click', () => {
+            store.dispatch(changeDirection('135deg'))
+        }
+    )
+document.getElementById('to225')
+    ?.addEventListener('click', () => {
+            store.dispatch(changeDirection('225deg'))
+        }
+    )
+document.getElementById('to315')
+    ?.addEventListener('click', () => {
+            store.dispatch(changeDirection('315deg'))
         }
     )
 
 document.getElementById('toRight')
     ?.addEventListener('click', () => {
-            store.dispatch(directionToRight())
+            store.dispatch(changeDirection('90deg'))
         }
     )
 
