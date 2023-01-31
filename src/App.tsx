@@ -1,24 +1,37 @@
 import './App.css'
 import store from "./store";
-import {generateSpanColor, randomHexColor} from "./utils";
+import {generateSpanColor} from "./utils";
+import {
+    directionToLeft,
+    directionToRight,
+    randomizeFirstColor,
+    randomizeLastColor
+} from "./actions";
+
 
 // store
 //  - Read      => getState() : get actual state
 //  - Write     => dispatch() : change state
 //  - Subscribe => subscribe() : subscribe to state update/modifications
 
-
 const renderNbColors = () => {
     const state = store.getState()
     const {nbColors} = state
-    document.getElementById('nbColors').innerHTML = `${nbColors} colors generated`
+    const nbColorsEl = document.getElementById('nbColors')
+
+    nbColorsEl
+        ? nbColorsEl.innerHTML = `${nbColors} colors generated`
+        : null
 }
 
 const renderGradient = () => {
     const state = store.getState()
     const {direction, firstColor, lastColor} = state
+    const gradientEl = document.getElementById('gradient')
 
-    document.getElementById('gradient').style.background = `linear-gradient(${direction},${firstColor},${lastColor})`
+    gradientEl
+        ? gradientEl.style.background = `linear-gradient(${direction},${firstColor},${lastColor})`
+        : null
 }
 
 const renderColors = () => {
@@ -27,12 +40,18 @@ const renderColors = () => {
 
     const firstSpan = generateSpanColor(firstColor)
     const lastSpan = generateSpanColor(lastColor)
+    const colorsEl = document.getElementById('colors')
 
-    document.getElementById('colors').innerHTML = direction === '90deg'
-        ? `${firstSpan} -> ${lastSpan}`
-        : `${lastSpan} -> ${firstSpan}`
+    // avoid double optional chaining
+    if (colorsEl) {
+        // change arrow direction base on direction
+        colorsEl.innerHTML = direction === '90deg'
+            ? `${firstSpan} -> ${lastSpan}`
+            : `${lastSpan} -> ${firstSpan}`
+    }
 }
 
+// init
 renderNbColors()
 renderGradient()
 renderColors()
@@ -47,36 +66,36 @@ store.subscribe(renderGradient)
 store.subscribe(renderColors)
 
 // controls
-const randAllElement = document.getElementById('randAll')
-randAllElement.addEventListener('click', () => {
-        store.dispatch({type: 'RANDOMIZE_FIRST_COLOR', color: randomHexColor()})
-        store.dispatch({type: 'RANDOMIZE_LAST_COLOR', color: randomHexColor()})
-    }
-)
+document.getElementById('randAll')
+    ?.addEventListener('click', () => {
+            store.dispatch(randomizeFirstColor())
+            store.dispatch(randomizeLastColor())
+        }
+    )
 
-const randFirstElement = document.getElementById('randFirst')
-randFirstElement.addEventListener('click', () => {
-        store.dispatch({type: 'RANDOMIZE_FIRST_COLOR', color: randomHexColor()})
-    }
-)
+document.getElementById('randFirst')
+    ?.addEventListener('click', () => {
+            store.dispatch(randomizeFirstColor())
+        }
+    )
 
-const randLastElement = document.getElementById('randLast')
-randLastElement.addEventListener('click', () => {
-        store.dispatch({type: 'RANDOMIZE_LAST_COLOR', color: randomHexColor()})
-    }
-)
+document.getElementById('randLast')
+    ?.addEventListener('click', () => {
+            store.dispatch(randomizeLastColor())
+        }
+    )
 
-const toLeftElement = document.getElementById('toLeft')
-toLeftElement.addEventListener('click', () => {
-        store.dispatch({type: 'CHANGE_DIRECTION_TO_LEFT'})
-    }
-)
+document.getElementById('toLeft')
+    ?.addEventListener('click', () => {
+            store.dispatch(directionToLeft())
+        }
+    )
 
-const toRightElement = document.getElementById('toRight')
-toRightElement.addEventListener('click', () => {
-        store.dispatch({type: 'CHANGE_DIRECTION_TO_RIGHT'})
-    }
-)
+document.getElementById('toRight')
+    ?.addEventListener('click', () => {
+            store.dispatch(directionToRight())
+        }
+    )
 
 function App() {
     return (
