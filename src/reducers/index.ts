@@ -8,20 +8,20 @@ import {
 // import them all with 'actions'
 // import * as actions from "../actions";
 // but prepend actions using actions.ACTION_TYPE
-type actionProps = {
+type action = {
     color: string,
     type: string,
     direction: string,
 }
 
-type initialStateProps = {
+type state = {
     direction: string,
     firstColor: string,
     lastColor: string,
     nbColors: number,
 }
 
-const initialState: initialStateProps = {
+const initialState: state = {
     direction: '90deg',
     firstColor: '#e367a4',
     lastColor: '#48b1f3',
@@ -32,8 +32,8 @@ const initialState: initialStateProps = {
 // get action given
 // => return new state
 const reducer = (
-    state = initialState,
-    action: actionProps = {
+    state: state = initialState,
+    action: action = {
         color: '',
         type: '',
         direction: '',
@@ -64,5 +64,7 @@ const reducer = (
             }
     }
 }
+
+export type { action, state }
 
 export { reducer }
