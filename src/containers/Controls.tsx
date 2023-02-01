@@ -13,6 +13,10 @@ const mapDispatchToProps = (dispatch) => ({
     randomLastColor: () => {
         dispatch(randomizeLastColor())
     },
+    randomAllColor: () => {
+        dispatch(randomizeFirstColor())
+        dispatch(randomizeLastColor())
+    },
 })
 
 // container

@@ -1,5 +1,5 @@
 // @ts-ignore
-const Controls = ({randomFirstColor, randomLastColor}) => (
+const Controls = ({randomFirstColor, randomAllColor, randomLastColor}) => (
         <>
             <div className="buttons group">
                 <button
@@ -9,6 +9,14 @@ const Controls = ({randomFirstColor, randomLastColor}) => (
                     onClick={randomFirstColor}
                 >
                     Random First
+                </button>
+                <button
+                    type="button"
+                    className="button"
+                    id="randAll"
+                    onClick={randomAllColor}
+                >
+                    Random All
                 </button>
                 <button
                     type="button"
