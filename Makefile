@@ -19,6 +19,17 @@ dev:
 		$(NODE-IMAGE) \
 		$(PKG_MANAGER) dev
 
+.PHONY: build
+build:
+	docker run --rm -it \
+		--name $(CONTAINER_NAME)-build \
+		-u "node" \
+		-w /home/node/app \
+		-v $(PWD):/home/node/app \
+		$(NODE-IMAGE) \
+		$(PKG_MANAGER) build
+
+
 .PHONY: install
 install:
 	docker run --rm -it \
