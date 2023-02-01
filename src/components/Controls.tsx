@@ -1,17 +1,12 @@
-import {useDispatch} from "react-redux";
-import {randomizeFirstColor, randomizeLastColor} from "../actions";
-
-const Controls = () => {
-    const dispatch = useDispatch()
-
-    return (
+// @ts-ignore
+const Controls = ({randomFirstColor, randomLastColor}) => (
         <>
             <div className="buttons group">
                 <button
                     type="button"
                     className="button"
                     id="randFirst"
-                    onClick={() => dispatch(randomizeFirstColor())}
+                    onClick={randomFirstColor}
                 >
                     Random First
                 </button>
@@ -19,13 +14,12 @@ const Controls = () => {
                     type="button"
                     className="button"
                     id="randLast"
-                    onClick={() => dispatch(randomizeLastColor())}
+                    onClick={randomLastColor}
                 >
                     Random Last
                 </button>
             </div>
         </>
     )
-}
 
 export default Controls

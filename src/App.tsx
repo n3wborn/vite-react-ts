@@ -1,10 +1,11 @@
 import './App.css'
+// !! import components from container directory !!
 import {
     NbColors,
     Controls,
     Gradient,
-    Direction,
-} from "./components"
+    Direction
+} from "./containers"
 
 export default function App() {
     return (
