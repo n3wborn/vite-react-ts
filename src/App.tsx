@@ -1,7 +1,7 @@
 import './App.css'
 import store from "./store";
 import {generateSpanColor} from "./utils";
-import {changeDirection, randomizeFirstColor, randomizeLastColor} from "./actions";
+import {randomizeFirstColor, randomizeLastColor} from "./actions";
 import {
     NbColors,
     Controls,
@@ -70,50 +70,6 @@ document.getElementById('randAll')
     ?.addEventListener('click', () => {
             store.dispatch(randomizeFirstColor())
             store.dispatch(randomizeLastColor())
-        }
-    )
-
-document.getElementById('randFirst')
-    ?.addEventListener('click', () => {
-            store.dispatch(randomizeFirstColor())
-        }
-    )
-
-document.getElementById('randLast')
-    ?.addEventListener('click', () => {
-            store.dispatch(randomizeLastColor())
-        }
-    )
-
-document.getElementById('toLeft')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('270deg'))
-        }
-    )
-document.getElementById('to45')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('45deg'))
-        }
-    )
-document.getElementById('to135')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('135deg'))
-        }
-    )
-document.getElementById('to225')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('225deg'))
-        }
-    )
-document.getElementById('to315')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('315deg'))
-        }
-    )
-
-document.getElementById('toRight')
-    ?.addEventListener('click', () => {
-            store.dispatch(changeDirection('90deg'))
         }
     )
 
