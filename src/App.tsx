@@ -1,11 +1,13 @@
 import './App.css'
 import store from "./store";
 import {generateSpanColor} from "./utils";
+import {changeDirection, randomizeFirstColor, randomizeLastColor} from "./actions";
 import {
-    changeDirection,
-    randomizeFirstColor,
-    randomizeLastColor
-} from "./actions";
+    NbColors,
+    Controls,
+    Gradient,
+    Direction,
+} from "./components"
 
 // store
 //  - Read      => getState() : get actual state
@@ -115,31 +117,13 @@ document.getElementById('toRight')
         }
     )
 
-function App() {
+export default function App() {
     return (
         <div className="App">
-            <div id="nbColors"></div>
-
-            <div className="buttons group">
-                <button className="button" id="randFirst">Random First</button>
-                <button className="button" id="randAll">Random All</button>
-                <button className="button" id="randLast">Random Last</button>
-            </div>
-
-            <div id="colors"></div>
-
-            <div id="gradient"></div>
-
-            <div className="buttons group">
-                <button className="button" id="toLeft">to Left</button>
-                <button className="button" id="to45">45</button>
-                <button className="button" id="to135">135</button>
-                <button className="button" id="to225">225</button>
-                <button className="button" id="to315">315</button>
-                <button className="button" id="toRight">to Right</button>
-            </div>
+            <NbColors/>
+            <Controls/>
+            <Gradient/>
+            <Direction/>
         </div>
     )
 }
-
-export default App
