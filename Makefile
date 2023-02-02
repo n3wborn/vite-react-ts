@@ -3,7 +3,7 @@ PORT_HOST = 5555
 PORT_CONTAINER = 5555
 NODE-IMAGE = node:lts-slim
 PKG_MANAGER = yarn
-CONTAINER_NAME = vite4-ts-swc
+CONTAINER_NAME = react-redux
 
 %:
 	@:
