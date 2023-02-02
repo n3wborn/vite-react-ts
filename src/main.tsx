@@ -1,10 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import {createRoot} from 'react-dom/client';
+
 import App from './App'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+// https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis
+const container = document.getElementById('root')!;
+const root = createRoot(container);
+const rootReactElement = (
     <React.StrictMode>
-        <App/>
-    </React.StrictMode>,
+            <App/>
+    </React.StrictMode>
 )
+
+root.render(rootReactElement);
