@@ -1,11 +1,11 @@
 import Controls from "./Controls";
-import Direction from "./Direction";
+import Directions from "./Directions";
 import Gradient from "./Gradient";
 import NbColors from "./NbColors";
 
 export {
     Controls,
-    Direction,
+    Directions,
     Gradient,
     NbColors,
 }

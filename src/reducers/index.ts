@@ -53,7 +53,6 @@ const reducer = (
                 nbColors: state.nbColors + 1,
             }
         case CHANGE_DIRECTION:
-            console.log({state, action})
             return {
                 ...state,
                 direction: action.direction,
