@@ -1,62 +1,33 @@
 // import every type of actions
 import {
-    CHANGE_DIRECTION,
-    RANDOMIZE_FIRST_COLOR,
-    RANDOMIZE_LAST_COLOR,
+    CHANGE_CURRENCY
 } from "../actions";
 
-// import them all with 'actions'
-// import * as actions from "../actions";
-// but prepend actions using actions.ACTION_TYPE
-type actionProps = {
-    color: string,
+type convertActionProps = {
     type: string,
-    direction: string,
+    currency: string,
 }
 
-type initialStateProps = {
-    direction: string,
-    firstColor: string,
-    lastColor: string,
-    nbColors: number,
+type convertInitialStateProps = {
+    currency: string,
 }
 
-const initialState: initialStateProps = {
-    direction: '90deg',
-    firstColor: '#e367a4',
-    lastColor: '#48b1f3',
-    nbColors: 0,
+const convertInitialState: convertInitialStateProps = {
+    currency: 'EUR',
 }
 
-// get actual state
-// get action given
-// => return new state
 const reducer = (
-    state = initialState,
-    action: actionProps = {
-        color: '',
+    state = convertInitialState,
+    action: convertActionProps = {
         type: '',
-        direction: '',
+        currency: '',
     }
 ) => {
     switch (action.type) {
-        case RANDOMIZE_FIRST_COLOR:
+        case CHANGE_CURRENCY:
             return {
                 ...state,
-                firstColor: action.color,
-                nbColors: state.nbColors + 1,
-            }
-        case RANDOMIZE_LAST_COLOR:
-            return {
-                ...state,
-                lastColor: action.color,
-                nbColors: state.nbColors + 1,
-            }
-        case CHANGE_DIRECTION:
-            console.log({state, action})
-            return {
-                ...state,
-                direction: action.direction,
+                currency: action.currency,
             }
         default:
             return {
