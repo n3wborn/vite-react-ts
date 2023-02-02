@@ -4,8 +4,8 @@ import {
     NbColors,
     Controls,
     Gradient,
-    Direction
 } from "./containers"
+import Directions from "./components/Directions";
 
 export default function App() {
     return (
@@ -13,7 +13,7 @@ export default function App() {
             <NbColors/>
             <Controls/>
             <Gradient/>
-            <Direction/>
+            <Directions />
         </div>
     )
 }
