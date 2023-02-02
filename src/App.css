@@ -39,3 +39,17 @@ div.buttons.group {
   margin: 1em 0;
 }
 
+.value {
+  background-color: #242424;
+  border: transparent 0;
+}
+
+.symbols {
+  width: 100%;
+  background-color: #242424;
+  border: transparent 0;
+}
+
+:focus-visible {
+  outline: none;
+}

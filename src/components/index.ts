@@ -1,11 +1,13 @@
-import Controls from "./Controls";
-import Direction from "./Direction";
-import Gradient from "./Gradient";
-import NbColors from "./NbColors";
+import Amount from "./Amount";
+import Converter from "./Converter";
+import Result from "./Result";
+import Spinner from "./Spinner";
+import Symbols from "./Symbols";
 
 export {
-    Controls,
-    Direction,
-    Gradient,
-    NbColors,
+    Amount,
+    Converter,
+    Result,
+    Spinner,
+    Symbols,
 }
