@@ -1,9 +1,10 @@
 import {createStore} from 'redux'
 
-import { reducer } from "../reducers";
+import {convertReducer} from "../reducers";
+import {devToolsEnhancer} from "redux-devtools-extension";
 
 // deprecated way of doing things :/
 // https://redux.js.org/introduction/why-rtk-is-redux-today
-const store = createStore(reducer)
+const store = createStore(convertReducer)
 
 export default store

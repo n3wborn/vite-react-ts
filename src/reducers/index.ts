@@ -16,7 +16,7 @@ const convertInitialState: convertInitialStateProps = {
     currency: 'EUR',
 }
 
-const reducer = (
+const convertReducer = (
     state = convertInitialState,
     action: convertActionProps = {
         type: '',
@@ -36,4 +36,4 @@ const reducer = (
     }
 }
 
-export { reducer }
+export { convertReducer }
