@@ -43,3 +43,7 @@ add_deps:
 .PHONY: rm_deps
 rm_deps:
 	docker exec -it $(CONTAINER_NAME) $(PKG_MANAGER) remove $(filter-out $@,$(MAKECMDGOALS))
+
+.PHONY: rm_dev_deps
+rm_dev_deps:
+	docker exec -it $(CONTAINER_NAME) $(PKG_MANAGER) remove $(filter-out $@,$(MAKECMDGOALS)) --dev
