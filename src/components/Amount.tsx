@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import React from "react";
 
 type AmountPropsStyle = {
-    amount: number | string
+    amount: number,
+    changeAmountValue: Function,
 }
 
 const AmountDiv = styled.div`
@@ -11,6 +13,7 @@ const AmountDiv = styled.div`
     border-right: #1a1a1a 2px solid;
     text-align: right;
 `
+
 const SymbolDiv = styled.div`
     width: 20%;
     padding: 0.5rem;
@@ -22,9 +25,14 @@ const DivWrapper = styled.div`
     display: flex;
 `
 
-const Amount = ({amount}: AmountPropsStyle) => {
-    const onInputChange = (e) => {
-        console.log('Amount : ', e.target.value)
+const Amount = ({amount, changeAmountValue}: AmountPropsStyle) => {
+    // execute something when the input changed
+    const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        // keep only numeric values
+        const result = e.target.value.replace(/\D/g,'')
+
+        // the function (created by the container) that will be executed
+        changeAmountValue(e.target.value)
     }
 
     return (

@@ -1,9 +1,11 @@
-import {
-    Amount,
-    Result,
-    Spinner,
-} from "./index";
 import styled from "styled-components";
+
+import {
+    Spinner,
+    Result,
+} from "./index";
+// import component __from their containers__
+import {Amount} from "../containers"
 
 type ConverterPropsType = {
     loading: boolean
@@ -35,8 +37,8 @@ const Converter = ({loading}: ConverterPropsType) => {
             {
                 !loading && (
                     <>
-                        <Amount amount={1}/>
-                        <Result result={1} symbol='EUR'/>
+                        <Amount />
+                        <Result result={0} symbol='EUR'/>
                     </>
                 )
             }
