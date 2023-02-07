@@ -1,16 +1,18 @@
+import { Send } from "react-feather";
+import FormStyled from "./FormStyled";
 
 const Form = () => {
     return (
-        <div>
+        <FormStyled>
             <input
                 type="text"
                 placeholder='Type your message'
                 className='input'
             />
             <button className="submit">
-                Send
+                <Send size='100%' />
             </button>
-        </div>
+        </FormStyled>
     );
 }
 
