@@ -5,7 +5,7 @@ const MessagesStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-color: white;

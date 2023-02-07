@@ -1,9 +1,15 @@
-const MessageDetails = () => {
+import { MessageProps } from "./Messages";
+
+export type MessageDetailProps = {
+    msg: MessageProps
+}
+
+const MessageDetails = ({ msg }: MessageDetailProps) => {
     return (
         <div className="message">
-            <div className="message-author">John Doe</div>
+            <div className="message-author">{msg.user}</div>
             <div className="message-body">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                {msg.content}
             </div>
         </div>
     );
