@@ -1,16 +1,19 @@
+import ChatStyled from "./ChatStyled"
+import GlobalStyles from "../../styles/GlobalStyles"
 import {
     Messages,
     Form,
     Settings,
-} from "../../components";
+} from "../../components"
 
 
 const Chat = () => (
-    <div>
+    <ChatStyled>
+        <GlobalStyles/>
         <Settings/>
         <Messages/>
         <Form/>
-    </div>
+    </ChatStyled>
 )
 
 export default Chat

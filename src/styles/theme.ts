@@ -11,10 +11,8 @@ const colors = {
 export const lighten = (color: string, amount: number) => tinycolor(color).lighten(amount).toString()
 export const darken = (color: string, amount: number) => tinycolor(color).darken(amount).toString()
 
-console.log(tinycolor(colors.richBlack).toString())
-
 const theme = {
-    mainColor: colors.richBlack,
+    mainColor: colors.YinMnBlue,
     bg: '#000000',
     bgGradient: 'linear-gradient(to right, #434343, #000000)',
 }

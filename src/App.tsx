@@ -5,9 +5,7 @@ import {Chat} from "./components";
 function App() {
 
     return (
-        <div className="App">
-            <Chat />
-        </div>
+        <Chat />
     )
 }
 

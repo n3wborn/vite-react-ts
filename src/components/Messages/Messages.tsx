@@ -1,13 +1,14 @@
 import {MessageDetails} from "../index";
+import MessagesStyled from "./MessagesStyled";
 
 const Messages = () => {
     return (
-        <div>
+        <MessagesStyled>
             Messages
             <MessageDetails/>
             <MessageDetails/>
             <MessageDetails/>
-        </div>
+        </MessagesStyled>
     );
 }
 

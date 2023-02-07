@@ -1,16 +1,8 @@
 #root {
   display: flex;
-  flex-direction: column;
-  max-width: 1280px;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.App {
-  width: 40vw;
-  height: 40vh;
 }
 
 .flex-center {
@@ -21,9 +13,4 @@
 
 input {
   margin: 0.2rem;
-}
-
-div {
-  margin: 0.5rem;
-  padding: 1rem;
 }
