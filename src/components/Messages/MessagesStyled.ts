@@ -8,15 +8,31 @@ const MessagesStyled = styled.div`
     align-items: center;
     overflow-x: hidden;
     overflow-y: scroll;
+    scrollbar-color: white;
+    scrollbar-width: thin;
+
     &::-webkit-scrollbar {
-        background-color: none;
+        background-color: white;
     }
     padding: 2rem;
-    max-width: 700px;
     background: ${theme.bg};
     color: ${theme.mainColor};
     font-size: bold;
     border-radius: 5px 5px 0px 0px;
+
+    .message {
+        margin-bottom: 1.2rem;
+
+        &-author {
+            font-size: .8rem;
+        }
+
+        &-body {
+            padding: .5em 1em;
+            position: relative;
+            display: inline-block;
+        }
+    }
 `
 
 export default MessagesStyled

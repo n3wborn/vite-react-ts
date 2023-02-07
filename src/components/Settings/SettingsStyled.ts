@@ -6,7 +6,6 @@ const SettingsStyled = styled.div`
     right: 1rem;
     top: 1rem;
     padding: .7rem;
-    max-width: 700px;
     margin: 0 auto 0 2em;
     background: #fff;
     color: ${theme.mainColor};
