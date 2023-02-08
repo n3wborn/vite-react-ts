@@ -1,10 +1,4 @@
-import { MessageProps } from "./Messages";
-
-export type MessageDetailProps = {
-    msg: MessageProps
-}
-
-const MessageDetails = ({ msg }: MessageDetailProps) => {
+const MessageDetails = ({ msg }) => {
     return (
         <div className="message">
             <div className="message-author">{msg.user}</div>
