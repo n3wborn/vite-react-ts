@@ -1,8 +1,11 @@
 import ChatStyled from "./ChatStyled"
 import GlobalStyles from "../../styles/GlobalStyles"
 import {
-    Messages,
     Form,
+} from "../../containers";
+
+import {
+    Messages,
     Settings,
 } from "../../components"
 

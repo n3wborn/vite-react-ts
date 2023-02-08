@@ -5,6 +5,7 @@ import {devToolsEnhancer} from "@redux-devtools/extension";
 
 // deprecated way of doing things :/
 // https://redux.js.org/introduction/why-rtk-is-redux-today
+// @ts-ignore
 const store = createStore(chatReducer, devToolsEnhancer())
 
 // store => keep component's state "outside" and have a global store

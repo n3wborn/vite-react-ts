@@ -1,13 +1,16 @@
 // import every type of actions
 import {
-    ACTION_PELEP
+    CHANGE_MESSAGE_INPUT
 } from "../actions";
 
 type chatActionProps = {
     type: string,
+    value: '',
 }
 
 const chatInitialState = {
+    loading: false,
+    username: 'John Doe',
     messages: [
         {
             id: 1,
@@ -29,7 +32,8 @@ const chatInitialState = {
             content: 'Of course I do. I\'d like to have fun with you :) Let\'s learn React together ! ^^',
             user: 'Jane Doe',
         },
-    ]
+    ],
+    inputMessage: '',
 }
 
 
@@ -37,13 +41,15 @@ const chatInitialState = {
 const chatReducer = (
     state = chatInitialState,
     action: chatActionProps = {
-        type: ''
+        type: '',
+        value: '',
     }
 ) => {
     switch (action.type) {
-        case ACTION_PELEP:
+        case CHANGE_MESSAGE_INPUT:
             return {
                 ...state,
+                inputMessage: action.value,
             }
         default:
             return {

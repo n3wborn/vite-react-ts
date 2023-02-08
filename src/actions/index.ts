@@ -1,8 +1,8 @@
 // Action types
-export const ACTION_PELEP = 'ACTION_PELEP'
+export const CHANGE_MESSAGE_INPUT = 'CHANGE_MESSAGE_INPUT'
 // Action creators
-// export const changeAmount = (amount: number) => ({
-//     type: CHANGE_AMOUNT,
-//     amount
-// })
+export const changeMessageInput = (message: string) => ({
+    type: CHANGE_MESSAGE_INPUT,
+    message
+})
 
