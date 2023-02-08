@@ -1,34 +1,56 @@
-import {useState} from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+// import "./styles.css";
+import {
+    TaskForm,
+    TasksHeader,
+    TasksList,
+} from './components'
 
-function App() {
-    const [count, setCount] = useState(0)
+export default function App() {
+    const [tasks, setTasks] = useState([
+        { id: 1, text: "Faire les courses", done: false },
+        { id: 2, text: "Ménage !", done: true },
+    ]);
+
+    const addTask = (text: string) => {
+        const newTask = {
+            text,
+            id: Date.now(),
+            done: false,
+        };
+
+        setTasks([...tasks, newTask]);
+    };
+
+    const deleteTask = (id: number) => {
+        const filteredTasks = tasks.filter((t) => t.id !== id);
+        setTasks(filteredTasks);
+    };
+
+    const toggleTask = (id: number) => {
+        const realTask = tasks.find((t) => t.id === id);
+        const index = tasks.findIndex((t) => t.id === id);
+        const taskCopy = { ...realTask };
+        const tasksListCopy = [...tasks];
+
+        taskCopy.done = !taskCopy.done;
+        tasksListCopy[index] = taskCopy;
+        setTasks(tasksListCopy);
+    };
 
     return (
-        <div className="App">
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                    <img src="/vite.svg" className="logo" alt="Vite logo"/>
-                </a>
-                <a href="https://reactjs.org" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo"/>
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
+        <div className="container">
+            <article>
+                <TasksHeader tasks={tasks} />
+                <TasksList
+                    tasks={tasks}
+                    toggleTask={toggleTask}
+                    deleteTask={deleteTask}
+                />
+                <footer>
+                    <TaskForm addTask={addTask} />
+                </footer>
+            </article>
         </div>
-    )
+    );
 }
-
-export default App
