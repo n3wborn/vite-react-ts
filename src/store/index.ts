@@ -1,12 +1,20 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import {composeWithDevTools} from "@redux-devtools/extension";
 
 import {chatReducer} from "../reducers";
-import {devToolsEnhancer} from "@redux-devtools/extension";
+import {loggerMiddleware} from "../middleware"
+
+// deprecated way of doing things ?!
+const enhancers = composeWithDevTools(
+    applyMiddleware(...loggerMiddleware)
+)
 
 // deprecated way of doing things :/
 // https://redux.js.org/introduction/why-rtk-is-redux-today
-// @ts-ignore
-const store = createStore(chatReducer, devToolsEnhancer())
+const store = createStore(
+    chatReducer,
+    enhancers
+)
 
 // store => keep component's state "outside" and have a global store
 export default store
