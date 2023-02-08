@@ -7,4 +7,9 @@ import {devToolsEnhancer} from "@redux-devtools/extension";
 // https://redux.js.org/introduction/why-rtk-is-redux-today
 const store = createStore(chatReducer, devToolsEnhancer())
 
+// store => keep component's state "outside" and have a global store
 export default store
+
+// https://react-redux.js.org/using-react-redux/usage-with-typescript#typing-the-connect-higher-order-component
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

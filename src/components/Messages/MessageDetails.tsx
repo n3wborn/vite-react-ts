@@ -1,9 +1,18 @@
-const MessageDetails = ({ msg }) => {
+import {PropsWithChildren} from "react";
+
+export interface MessageDetailsProps extends PropsWithChildren {
+    id: number
+    user: string
+    content: string
+    ownMessage: boolean
+}
+
+const MessageDetails = ({ user, content, ownMessage = false }: MessageDetailsProps) => {
     return (
         <div className="message">
-            <div className="message-author">{msg.user}</div>
+            <div className="message-author">{user}</div>
             <div className="message-body">
-                {msg.content}
+                {content}
             </div>
         </div>
     );
