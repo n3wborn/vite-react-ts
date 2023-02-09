@@ -1,9 +1,14 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
-const initialState = [
-    { id: 1, text: "Faire les courses", done: false },
-    { id: 2, text: "Ménage !", done: true },
-]
+type taskType = {
+    completed: boolean,
+    id: number,
+    title: string,
+    userId: number,
+}
+
+type initialStateType = taskType[]
+const initialState: initialStateType = []
 
 const todoSlice = createSlice({
     name: 'todo',
@@ -11,14 +16,13 @@ const todoSlice = createSlice({
     reducers: {
         // from ACTUAL State, return ACTUAL State + New Task
         addTask: (state, action) => {
-            /*
-             {type: "<SliceName>/<Reducer>", payload: "<Payload we will provide to reducer>"}
-             {type: "todo/addTask", payload: "buy something"}
-             */
-            const newTask = {
+            /* {type: "<SliceName>/<Reducer>", payload: "<Payload we will provide to reducer>"} */
+
+            const newTask: taskType = {
+                completed: false,
                 id: Date.now(),
-                done: false,
-                text: action.payload
+                title: action.payload,
+                userId: 1
             };
 
             // we CAN mutate (immerJs does the mutable->immutable stuff himself)
@@ -27,7 +31,7 @@ const todoSlice = createSlice({
         toggleTask: (state, action) => {
             // {type: "todo/toggleTask", payload: 2}
             const task = state.find(t => t.id === action.payload)
-            task && (task.done = !task.done)
+            task && (task.completed = !task.completed)
         },
         deleteTask: (state, action) => {
             // {type: "todo/deleteTask", payload: 2}
