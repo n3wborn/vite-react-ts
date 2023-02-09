@@ -33,7 +33,7 @@ const todoSlice = createSlice({
             // {type: "todo/deleteTask", payload: 2}
             // keep every task is their ID is not the one given in the payload
             const task = state.find(t => t.id === action.payload)
-            state = state.filter(t => t.id !== action.payload)
+            return state.filter(t => t.id !== action.payload)
         },
     }
 })
