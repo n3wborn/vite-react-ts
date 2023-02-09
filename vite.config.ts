@@ -13,6 +13,10 @@ export default defineConfig(({ command, mode }) => {
         server: {
             port: 5555,
             host: true,
+        },
+        preview: {
+            port: 8080,
+            host: true,
         }
     }
 });
