@@ -1,21 +1,24 @@
-import {useState} from "react";
+import {useState} from "react"
+import {useDispatch} from "react-redux"
+import {addTask} from "../features/todo/todoSlice"
 
-const TaskForm = (props) => {
-    const [text, setText] = useState("");
+const TaskForm = () => {
+    const dispatch = useDispatch()
+    // keep track of inserted text
+    const [text, setText] = useState('')
 
-    const handleSubmit = (event: Event) => {
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-        props.addTask(text);
-
-        setText("");
-    };
+        dispatch(addTask(text))
+        setText('')
+    }
 
     return (
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
-                placeholder="Ajouter une tâche"
+                placeholder='Add a task'
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
