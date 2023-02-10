@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit'
 
 type taskType = {
     completed: boolean,
@@ -8,10 +8,26 @@ type taskType = {
 }
 
 type initialStateType = taskType[]
-const initialState: initialStateType = []
+
+const initialState: initialStateType = [
+    {
+        completed: false,
+        id: Date.now(),
+        title: 'intial state fake task',
+        userId: 5
+    },
+    {
+        completed: true,
+        id: Date.now() + 1,
+        title: 'another intial state fake task',
+        userId: 5
+    }
+
+]
 
 const todoSlice = createSlice({
     name: 'todo',
+    // local state
     initialState,
     reducers: {
         // from ACTUAL State, return ACTUAL State + New Task
