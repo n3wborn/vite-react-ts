@@ -4,14 +4,14 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 export const TodosApi = createApi({
     reducerPath: 'todosApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://jsonplaceholder.typicode.com/'
+        baseUrl: 'https://jsonplaceholder.typicode.com'
     }),
     endpoints: (builder) => ({
         getTodoById: builder.query({
-            query: (id: number) => `todos/${id}`,
+            query: (id: number) => `/todos/${id}`,
         }),
         getUserTodosByUserId: builder.query({
-            query: (id: number) => `user/${id}/todos`,
+            query: (id: number) => `/users/${id}/todos`,
         }),
     }),
 })
