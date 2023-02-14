@@ -10,7 +10,7 @@ const TaskItem = ({task}) => {
     }
 
     return (
-        <div>
+        <>
             <label>
                 <input
                     type="checkbox"
@@ -27,7 +27,7 @@ const TaskItem = ({task}) => {
                     role="button"
                 />
             </label>
-        </div>
+        </>
     );
 };
 

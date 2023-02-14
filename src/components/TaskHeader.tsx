@@ -5,16 +5,9 @@ const TasksHeader = ({tasks}) => {
         <>
             <header>
                 <h1>React - Redux Toolkit / Todo List</h1>
-                tasks
-                ?
-                (
-                <>
                     <p>
                         Tasks to do: <strong>{incompleteTasks.length}</strong>
                     </p>
-                </>
-                )
-                : null
             </header>
         </>
     )

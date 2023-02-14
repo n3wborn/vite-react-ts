@@ -4,18 +4,12 @@ const TasksList = ({tasks}) => {
 
     return (
         <>
-            data ?
-            (
-            <>
-                {tasks.map((t) => (
-                    <TaskItem
-                        task={t}
-                        key={t.id}
-                    />
-                ))}
-            </>
-            )
-            : null
+            {tasks.map((t) => (
+                <TaskItem
+                    task={t}
+                    key={t.id}
+                />
+            ))}
         </>
     )
 }
