@@ -1,18 +1,12 @@
-import {
-    TasksHeader,
-    TaskForm,
-    TasksList,
-} from './components'
-
 export default function App() {
 
     return (
         <div className="container">
             <article>
-                <TasksHeader />
-                <TasksList/>
+                {/*<TasksHeader tasks={} key={}/>*/}
+                {/*<TasksList tasks={} key={}/>*/}
                 <footer>
-                    <TaskForm/>
+                    {/*<TaskForm/>*/}
                 </footer>
             </article>
         </div>
