@@ -1,11 +1,13 @@
 import {X} from "react-feather";
-import {useDispatch} from "react-redux"
-
-import {deleteTask, toggleTask} from "../features/todo/todoSlice"
-import {AppDispatch} from "../store";
 
 const TaskItem = ({task}) => {
-    const dispatch: AppDispatch = useDispatch()
+    const handleOnChange = (id: number) => {
+        console.log(`toggle "completed" task: ${id}`)
+    }
+
+    const handleOnClick = (id: number) => {
+        console.log(`delete task: ${id}`)
+    }
 
     return (
         <div>
@@ -13,14 +15,15 @@ const TaskItem = ({task}) => {
                 <input
                     type="checkbox"
                     checked={task.completed}
-                    onChange={() => dispatch(toggleTask(task.id))}
+                    onChange={() => handleOnChange(task.id)}
                 />
                 {task.title}
 
                 <X
                     style={{color: "antiquewhite", padding: "6px", marginLeft: "20px"}}
                     strokeWidth="6"
-                    onClick={() => dispatch(deleteTask(task.id))}
+
+                    onClick={() => handleOnClick(task.id)}
                     role="button"
                 />
             </label>

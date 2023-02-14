@@ -1,18 +1,13 @@
 import {ChangeEvent, FormEventHandler, useState} from "react"
-import {useDispatch} from "react-redux"
-
-import {addTask} from "../features/todo/todoSlice"
-import {AppDispatch} from "../store";
 
 const TaskForm = () => {
-    const dispatch: AppDispatch = useDispatch()
     // keep track of inserted text
     const [text, setText] = useState('')
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
 
-        text.length !== 0 && dispatch(addTask(text))
+        text.length !== 0 && console.log(`submit ${text}`)
 
         setText('')
     }
