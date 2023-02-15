@@ -1,15 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-type taskType = {
-    completed: boolean,
-    id: number,
-    title: string,
-    userId: number,
+export type Task = {
+    completed: boolean
+    id: number
+    title: string
+    userId: number
 }
 
-type initialStateType = taskType[]
+type InitialStateType = Task[]
 
-const initialState: initialStateType = [
+const initialState: InitialStateType = [
     {
         completed: false,
         id: Date.now(),
@@ -22,7 +22,6 @@ const initialState: initialStateType = [
         title: 'another intial state fake task',
         userId: 5
     }
-
 ]
 
 const todoSlice = createSlice({
@@ -33,8 +32,7 @@ const todoSlice = createSlice({
         // from ACTUAL State, return ACTUAL State + New Task
         addTask: (state, action) => {
             /* {type: "<SliceName>/<Reducer>", payload: "<Payload we will provide to reducer>"} */
-
-            const newTask: taskType = {
+            const newTask: Task = {
                 completed: false,
                 id: Date.now(),
                 title: action.payload,
@@ -51,8 +49,7 @@ const todoSlice = createSlice({
         },
         deleteTask: (state, action) => {
             // {type: "todo/deleteTask", payload: 2}
-            // keep every task is their ID is not the one given in the payload
-            const task = state.find(t => t.id === action.payload)
+            // Delete task (whose id is given in payload) from the state
             return state.filter(t => t.id !== action.payload)
         },
     }
