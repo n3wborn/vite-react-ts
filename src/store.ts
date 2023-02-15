@@ -1,13 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
 import {setupListeners} from '@reduxjs/toolkit/query'
-import {TodosApi} from './features/api/todos'
+import {api} from './features/api/todos'
 
 export const store = configureStore({
     reducer: {
-        [TodosApi.reducerPath]: TodosApi.reducer,
+        [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(TodosApi.middleware),
+        getDefaultMiddleware().concat(api.middleware),
 })
 
 // enable refetchOnMount and refetchOnReconnect behaviors.

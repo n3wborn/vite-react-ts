@@ -1,24 +1,19 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import {Task} from "../../components/TaskItem";
 
 // https://redux-toolkit.js.org/tutorials/rtk-query#create-an-api-service
-export const TodosApi = createApi({
+export const api = createApi({
     reducerPath: 'todosApi',
+    tagTypes: ['Task'],
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://jsonplaceholder.typicode.com'
     }),
     endpoints: (builder) => ({
-        getTodoById: builder.query({
-            query: (id: number) => `/todos/${id}`,
-        }),
-        getUserTodosByUserId: builder.query({
-            query: (id: number) => `/users/${id}/todos`,
+        getUserTodos: builder.query({
+            query: (id: number) => ({url: `/user/${id}/todos`}),
         }),
     }),
 })
 
 // Export hooks for usage in functional components
-// export const { useGetPokemonByNameQuery } = TodosApi
-export const {
-    useGetTodoByIdQuery,
-    useGetUserTodosByUserIdQuery
-} = TodosApi
+export const {useGetUserTodosQuery} = api
