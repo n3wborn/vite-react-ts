@@ -6,9 +6,11 @@ export const store = configureStore({
     reducer: {
         [TodosApi.reducerPath]: TodosApi.reducer,
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(TodosApi.middleware),
 })
 
-// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
+// enable refetchOnMount and refetchOnReconnect behaviors.
 setupListeners(store.dispatch)
 // from https://redux-toolkit.js.org/tutorials/quick-start
 export type RootState = ReturnType<typeof store.getState>
