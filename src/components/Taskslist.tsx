@@ -1,14 +1,14 @@
-import {useGetUserTodosQuery} from "../features/api/todos";
-import {TaskItem} from "./index";
+import {useGetUserTodosQuery} from "../features/api/todos"
+import {TaskItem} from "./index"
 
 const TasksList = () => {
+    // @todo: get "real" userID once a real backend
     // fetch data from (arbitrary) user with userId = 5
-    const { data = [], isLoading, isFetching, isError } = useGetUserTodosQuery(5, {
+    const {data = [], isLoading, isFetching, isError} = useGetUserTodosQuery(5, {
         pollingInterval: 10000,
         refetchOnMountOrArgChange: true,
         skip: false,
     })
-
     if (isError) return <div>An error has occurred!</div>
     if (isLoading) return <div>isLoading ...</div>
 
