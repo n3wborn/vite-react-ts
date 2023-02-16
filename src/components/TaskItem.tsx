@@ -1,4 +1,5 @@
-import {X} from "react-feather";
+import {X} from "react-feather"
+import {useDeleteTodoMutation, useToggleCompletedMutation} from "../features/api/todos"
 
 export type Task = {
     completed: boolean
@@ -8,13 +9,15 @@ export type Task = {
 }
 
 const TaskItem = ({task}) => {
+    const [deleteTask, {isLoading: isDeleting}] = useDeleteTodoMutation()
+    const [toggleTaskCompleted] = useToggleCompletedMutation()
 
-    const handleOnChange = (id: number) => {
-        console.log(`toggle "completed" task: ${id}`)
+    const handleDeleteTask = () => {
+        deleteTask(task.id)
     }
 
-    const handleOnClick = (id: number) => {
-        console.log(`delete task: ${id}`)
+    const handleChangeCompleted = () => {
+        toggleTaskCompleted({id: task.id, completed: !task.completed})
     }
 
     if (!task) return <div>Missing task!</div>
@@ -25,20 +28,21 @@ const TaskItem = ({task}) => {
                 <input
                     type="checkbox"
                     checked={task.completed}
-                    onChange={() => handleOnChange(task.id)}
-                />
+                    onChange={() => handleChangeCompleted()}/>
 
-                {task.title}
+                {task.title} - {task.id}
 
                 <X
                     style={{color: "antiquewhite", padding: "6px", marginLeft: "20px"}}
                     strokeWidth="6"
-                    onClick={() => handleOnClick(task.id)}
+                    onClick={() => handleDeleteTask()}
                     role="button"
                 />
+
+                {isDeleting ? 'Deleting...' : ''}
             </label>
         </div>
     )
 };
 
-export default TaskItem;
+export default TaskItem
