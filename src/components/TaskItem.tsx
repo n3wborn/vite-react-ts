@@ -3,9 +3,9 @@ import {useDeleteTodoMutation, useToggleCompletedMutation} from "../features/api
 
 export type Task = {
     completed: boolean
-    id: number
+    id?: number
     title: string
-    userId: number
+    userId?: number
 }
 
 const TaskItem = ({task}) => {
