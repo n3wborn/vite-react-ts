@@ -5,7 +5,7 @@ PORT_HOST_PREVIEW = 8080
 PORT_CONTAINER_PREVIEW = 8080
 NODE-IMAGE = node:lts-slim
 PKG_MANAGER = yarn
-CONTAINER_NAME = vite4-ts-swc
+CONTAINER_NAME = vite-react-ts
 
 %:
 	@:
